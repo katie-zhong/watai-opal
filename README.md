@@ -1,12 +1,49 @@
 # WAT.ai Ops
 
-Partnership + operations platform for [WAT.ai](https://watai.ca), built to be more than a spreadsheet: relationship history that survives leadership turnover, a visible 3-day reply SLA, a deal pipeline with time-in-stage tracking, and Discord-native reminders.
+Partnership + operations platform for [WAT.ai](https://watai.ca) — the University of Waterloo's largest AI student engineering team. Built to be more than a spreadsheet: relationship history that survives leadership turnover, a visible 3-day reply SLA, a deal pipeline with time-in-stage tracking, and Discord-native reminders.
 
-Built for WAT.ai first; designed to generalize to any student team (lanes and roles are config, not code). See `CLAUDE.md` for the full product spec, architecture decisions, and roadmap.
+Built for WAT.ai first; designed to generalize to any student team (lanes and roles are config, not code). See [`CLAUDE.md`](./CLAUDE.md) for the full product spec, architecture decisions, and roadmap.
 
-## What's in the MVP (V0)
+**▶ [Open the live demo](https://katie-zhong.github.io/watai-opal/)** — a static, no-login walkthrough with mock data.
 
-- **Dashboard** — every thread waiting on the team, sorted worst-first with SLA day counters (green < 2d, amber approaching, red past the 3-day SLA), tasks due soon, and deals stuck in stage 7+ days
+---
+
+## Screenshots
+
+### Dashboard — everything waiting on the team, worst first
+The 3-day SLA clock is the signature: `D+n` counters go green → amber → red, and breached threads sort to the top.
+
+![Dashboard](./docs/screenshots/dashboard.png)
+
+### Partner detail — a timeline that outlives whoever owned the relationship
+Most-urgent info up top, full touchpoint history, contacts, and deals below.
+
+![Partner detail](./docs/screenshots/partner.png)
+
+### Pipeline — deals by stage with time-in-stage flags
+Deals stuck 7+ days in a stage get flagged amber so nothing quietly stalls.
+
+![Pipeline](./docs/screenshots/pipeline.png)
+
+<details>
+<summary>More screens — Partners, Tasks, Members</summary>
+
+**Partners**
+![Partners](./docs/screenshots/partners.png)
+
+**Tasks** — universal task primitive with lanes, assignees, and Discord reminders on by default
+![Tasks](./docs/screenshots/tasks.png)
+
+**Members** — team roster; role drives access, Discord username powers reminder pings
+![Members](./docs/screenshots/members.png)
+
+</details>
+
+---
+
+## What's in MVP 1 (V0)
+
+- **Dashboard** — every thread waiting on the team, sorted worst-first with SLA day counters, tasks due soon, and deals stuck in stage 7+ days
 - **Partners** — sponsor / event partner / social partner records with touchpoint timelines, contacts, and deals
 - **Pipeline** — deals across seven stages with time-in-stage flags and CAD/USD amounts
 - **Tasks** — universal task primitive with lanes, assignees, deadlines, and Discord reminders on by default
@@ -14,13 +51,13 @@ Built for WAT.ai first; designed to generalize to any student team (lanes and ro
 - **Discord reminders** — daily cron posts SLA breaches and due tasks to a webhook
 - **Auth + RBAC** — Google sign-in, allowlist by member email, role-tiered row-level security in Postgres
 
-On the roadmap (see `CLAUDE.md`): Google Drive folder indexing + AI briefs, Gmail sequences, events and finance modules, Interac e-transfer parsing, analytics dashboards.
+On the roadmap (see [`CLAUDE.md`](./CLAUDE.md)): Google Drive folder indexing + AI briefs, Gmail sequences, events and finance modules, Interac e-transfer parsing, analytics dashboards.
 
 ## Stack
 
 Next.js 14 (App Router, server actions) · Supabase (Postgres, Auth, RLS) · Tailwind · Vercel (hosting + cron)
 
-## Setup
+## Run it for real
 
 1. **Supabase project**
    - Create a project at [supabase.com](https://supabase.com)
@@ -45,6 +82,10 @@ Next.js 14 (App Router, server actions) · Supabase (Postgres, Auth, RLS) · Tai
    - Push to GitHub, import into Vercel, add the env vars
    - For Discord reminders, also set `SUPABASE_SERVICE_ROLE_KEY` (server-only) so the cron route can read data without a user session
    - `vercel.json` schedules the reminder check daily at 13:00 UTC
+
+## The demo
+
+The [live demo](https://katie-zhong.github.io/watai-opal/) is a self-contained static build in [`docs/`](./docs) — mock data, no backend, forms inert. It's what GitHub Pages serves and what the screenshots above are rendered from. To run it locally, open `docs/index.html` in a browser.
 
 ## Design notes
 
