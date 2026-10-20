@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAT.ai Ops — Demo</title><link rel="stylesheet" href="./demo.css"></head>
+<body><div class="shell"><aside>
+  <div><div class="brand-eyebrow">WAT.ai</div><div class="brand-name">Ops</div></div>
+  <nav>
+    <a data-view="dashboard" class="active">Dashboard</a>
+    <a data-view="partners">Partners</a>
+    <a data-view="partner">↳ Northline AI</a>
+    <a data-view="pipeline">Pipeline</a>
+    <a data-view="tasks">Tasks</a>
+    <a data-view="members">Members</a>
+  </nav>
+  <div class="who"><b>Katie Zhong</b><br>Admin<br><span style="text-decoration:underline;cursor:pointer">Sign out</span></div>
+</aside>
+<main><div class="demo-note"><b>Static demo.</b> Mock data, no backend — buttons and forms are inert. Use the left nav to move between screens. The real app runs on Next.js + Supabase with Google login, live data, and Discord reminders.</div><div class="view on" id="dashboard">
+  <div class="head-row"><div><h1>Dashboard</h1><p class="sub">Everything waiting on the team, worst first.</p></div></div>
+  <div class="stats">
+    <div class="stat"><div class="l">Waiting on us</div><div class="v">2</div></div>
+    <div class="stat"><div class="l">SLA breaches</div><div class="v">1</div></div>
+    <div class="stat"><div class="l">Open tasks</div><div class="v">2</div></div>
+    <div class="stat"><div class="l">Active pipeline</div><div class="v mono">$8,000</div></div>
+  </div>
+  <section style="margin-top:8px">
+    <div class="eyebrow section-title">Threads waiting on us</div>
+    <div class="card">
+      <a class="row" data-view="partner">
+        <span class="badge b-red mono">D+4</span>
+        <div class="grow"><div class="t-name">Northline AI</div><div class="t-sub">Send tier PDF + FlockRL one-pager</div></div>
+        <span class="mono muted" style="font-size:12px">Jul 27</span>
+      </a>
+      <a class="row">
+        <span class="badge b-amber mono">D+2</span>
+        <div class="grow"><div class="t-name">Deepdish Labs</div><div class="t-sub">Reply with fall event dates</div></div>
+        <span class="mono muted" style="font-size:12px">Jul 29</span>
+      </a>
+    </div>
+  </section>
+  <div class="two" style="margin-top:32px">
+    <section style="margin-top:0">
+      <div class="eyebrow section-title">Tasks due soon</div>
+      <div class="card">
+        <div class="row"><span class="checkbox"></span><div class="grow t-name" style="font-weight:400">Send tier PDF to Northline AI</div><span class="mono muted" style="font-size:12px">Aug 1</span></div>
+        <div class="row"><span class="checkbox"></span><div class="grow t-name" style="font-weight:400">Draft fall round target list</div><span class="mono muted" style="font-size:12px">Aug 5</span></div>
+      </div>
+    </section>
+    <section style="margin-top:0">
+      <div class="eyebrow section-title">Deals stuck in stage (7d+)</div>
+      <div class="card">
+        <div class="row"><span class="mono" style="color:var(--amber);font-size:12px;font-weight:600">D+9</span><div class="grow"><div class="t-name">Fall 2026 sponsorship</div><div class="t-sub">Harbourview Capital · contacted</div></div><span class="money">$3,000</span></div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="view" id="partners">
+  <div class="head-row"><div><h1>Partners</h1><p class="sub">Sponsors, event partners, and low-touch relationships.</p></div><a class="btn btn-primary">Add partner</a></div>
+  <div class="card" style="margin-top:24px">
+    <a class="row" data-view="partner"><div class="grow"><div class="t-name">Northline AI</div><div class="t-sub">Sponsor · AI infrastructure</div></div><span class="badge b-red mono">D+4</span></a>
+    <a class="row"><div class="grow"><div class="t-name">Deepdish Labs</div><div class="t-sub">Sponsor · Dev tools</div></div><span class="badge b-amber mono">D+2</span></a>
+    <a class="row"><div class="grow"><div class="t-name">Harbourview Capital</div><div class="t-sub">Sponsor · Fintech</div></div></a>
+    <a class="row"><div class="grow"><div class="t-name">Maple Robotics Club</div><div class="t-sub">Event partner · Student org</div></div></a>
+    <a class="row"><div class="grow"><div class="t-name">UW Data Science Club</div><div class="t-sub">Social partner · Student org</div></div></a>
+  </div>
+</div>
+<div class="view" id="partner">
+  <div class="head-row"><div><h1>Northline AI</h1><p class="sub">sponsor · AI infrastructure · via event</p></div><span class="badge b-red mono">D+4</span></div>
+  <div class="card banner" style="margin-top:24px"><div class="t-name">Waiting on our reply</div><div class="sub" style="margin-top:4px">Send tier PDF + FlockRL one-pager</div></div>
+  <section>
+    <div class="eyebrow section-title">Log a touchpoint</div>
+    <div class="card" style="padding:16px">
+      <div class="field" style="width:100%;color:var(--muted);margin-bottom:12px">What happened? (call summary, email sent, met at event…)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+        <div class="field muted">Email</div><div class="field muted">Waiting on us — start the clock</div><div class="field muted">Next action (optional)</div>
+      </div>
+      <button class="btn btn-primary">Log touchpoint</button>
+    </div>
+  </section>
+  <section>
+    <div class="eyebrow section-title">Timeline</div>
+    <div class="card">
+      <div class="row" style="align-items:flex-start"><span class="tl-date mono">Jul 27</span><div><div style="font-size:14px"><span class="pill">call</span>Intro call. They asked about the drone RL project and fall recruiting timeline.</div><div class="t-sub" style="margin-top:4px;white-space:normal">→ Send tier PDF + FlockRL one-pager</div></div></div>
+      <div class="row" style="align-items:flex-start"><span class="tl-date mono">Jul 14</span><div style="font-size:14px"><span class="pill">email</span>Sent intro after demo day. Warm — they came to our booth.</div></div>
+    </div>
+  </section>
+  <div class="two">
+    <section>
+      <div class="eyebrow section-title">Contacts</div>
+      <div class="card">
+        <div class="row"><div><div class="t-name">Priya Nair</div><div class="t-sub">Head of Talent · priya@northline.ai</div></div></div>
+        <div class="row"><div><div class="t-name">Marcus Bell</div><div class="t-sub">DevRel · marcus@northline.ai</div></div></div>
+      </div>
+    </section>
+    <section>
+      <div class="eyebrow section-title">Deals</div>
+      <div class="card">
+        <div class="row"><div class="grow"><div class="t-name">Fall 2026 sponsorship</div><div class="t-sub">Call booked · 2026-fall</div></div><span class="money">$5,000</span></div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="view" id="pipeline">
+  <div class="head-row"><div><h1>Pipeline</h1><p class="sub">Move a deal when the stage actually changes — time-in-stage is tracked.</p></div></div>
+  <div class="pipe" style="margin-top:24px">
+    <div class="col"><div class="col-head"><h3>Prospect</h3><span class="mono muted" style="font-size:12px">$2,000</span></div>
+      <div class="deal"><div class="n">Winter workshop series</div><div class="m">Cohere · <span class="mono">$2,000</span> · <span class="mono">D+3</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Contacted</h3><span class="mono muted" style="font-size:12px">$3,000</span></div>
+      <div class="deal stuck"><div class="n">Fall 2026 sponsorship</div><div class="m">Harbourview Capital · <span class="mono">$3,000</span> · <span class="mono" style="color:var(--amber)">D+9</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Call booked</h3><span class="mono muted" style="font-size:12px">$5,000</span></div>
+      <div class="deal"><div class="n">Fall 2026 sponsorship</div><div class="m">Northline AI · <span class="mono">$5,000</span> · <span class="mono">D+4</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Proposal sent</h3><span class="mono muted" style="font-size:12px">$4,000</span></div>
+      <div class="deal"><div class="n">Fall 2026 sponsorship</div><div class="m">Deepdish Labs · <span class="mono">$4,000</span> · <span class="mono">D+2</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Committed</h3><span class="mono muted" style="font-size:12px">$6,000</span></div>
+      <div class="deal"><div class="n">Fall 2026 sponsorship</div><div class="m">Vector Systems · <span class="mono">$6,000</span> · <span class="mono">D+1</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Paid</h3><span class="mono muted" style="font-size:12px">$5,000</span></div>
+      <div class="deal"><div class="n">Spring 2026 renewal</div><div class="m">Northline AI · <span class="mono">$5,000</span> · <span class="mono">D+0</span></div></div></div>
+    <div class="col"><div class="col-head"><h3>Renewal</h3><span class="mono muted" style="font-size:12px">$0</span></div><div class="empty">Empty</div></div>
+  </div>
+</div>
+<div class="view" id="tasks">
+  <div class="head-row"><div><h1>Tasks</h1><p class="sub">Anything with a deadline gets a Discord reminder by default.</p></div></div>
+  <div class="card" style="margin-top:24px;padding:16px;display:flex;gap:8px;flex-wrap:wrap">
+    <div class="field grow muted" style="min-width:224px">New task</div>
+    <div class="field muted" style="width:176px">Sponsorships ▾</div>
+    <div class="field muted" style="width:160px">Me ▾</div>
+    <div class="field muted" style="width:160px">Due date</div>
+    <button class="btn btn-primary">Add task</button>
+  </div>
+  <div class="card" style="margin-top:24px">
+    <div class="row"><span class="checkbox"></span><div class="grow"><div style="font-size:14px">Send tier PDF to Northline AI</div><div class="t-sub">Sponsorships · Katie Zhong</div></div><span class="mono muted" style="font-size:12px">Aug 1</span></div>
+    <div class="row"><span class="checkbox"></span><div class="grow"><div style="font-size:14px">Draft fall round target list</div><div class="t-sub">Sponsorships · Katie Zhong</div></div><span class="mono muted" style="font-size:12px">Aug 5</span></div>
+    <div class="row"><span class="checkbox"></span><div class="grow"><div style="font-size:14px">Confirm venue for kickoff social</div><div class="t-sub">Events & Marketing · Sam Okafor</div></div><span class="mono muted" style="font-size:12px">Aug 8</span></div>
+  </div>
+</div>
+<div class="view" id="members">
+  <div class="head-row"><div><h1>Members</h1><p class="sub">A member can sign in once their email is on this roster. Discord username powers reminder pings.</p></div></div>
+  <div class="card" style="margin-top:24px;padding:16px;display:flex;gap:8px;flex-wrap:wrap">
+    <div class="field grow muted" style="min-width:160px">Name</div>
+    <div class="field grow muted" style="min-width:224px">Waterloo Google email</div>
+    <div class="field muted" style="width:128px">TPM ▾</div>
+    <div class="field muted" style="width:176px">Sponsorships ▾</div>
+    <div class="field muted" style="width:176px">Discord username</div>
+    <button class="btn btn-primary">Add member</button>
+  </div>
+  <div class="card" style="margin-top:24px">
+    <table>
+      <thead><tr><th>Name</th><th>Role</th><th>Lane</th><th>Discord</th></tr></thead>
+      <tbody>
+        <tr><td><div style="font-weight:500">Katie Zhong</div><div class="t-sub">katie@uwaterloo.ca</div></td><td>Admin</td><td>Sponsorships</td><td class="mono" style="font-size:12px">katiez</td></tr>
+        <tr><td><div style="font-weight:500">Sam Okafor</div><div class="t-sub">sokafor@uwaterloo.ca</div></td><td>Director</td><td>Events &amp; Marketing</td><td class="mono" style="font-size:12px">sam_o</td></tr>
+        <tr><td><div style="font-weight:500">Rhea Patel</div><div class="t-sub">rpatel@uwaterloo.ca</div></td><td>Exec</td><td>Sponsorships</td><td class="mono" style="font-size:12px">rhea.p</td></tr>
+        <tr><td><div style="font-weight:500">Devin Cho</div><div class="t-sub">dcho@uwaterloo.ca</div></td><td>TPM</td><td>Projects</td><td class="mono" style="font-size:12px">devcho</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</main></div><script>
+const links=[...document.querySelectorAll('nav a')],views=[...document.querySelectorAll('.view')],rows=[...document.querySelectorAll('[data-view]')];
+function show(id){views.forEach(v=>v.classList.toggle('on',v.id===id));links.forEach(a=>a.classList.toggle('active',a.dataset.view===id));window.scrollTo(0,0);}
+rows.forEach(el=>{if(el.dataset.view)el.addEventListener('click',e=>{e.preventDefault();show(el.dataset.view);});});
+</script></body></html>

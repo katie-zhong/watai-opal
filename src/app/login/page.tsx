@@ -15,7 +15,7 @@ export default function LoginPage() {
         </div>
         <div className="mt-3 text-center">
           <a
-            href="https://katie-zhong.github.io/watai-opal/"
+            href="/demo/"
             className="text-sm font-medium underline underline-offset-4"
           >
             Enter demo mode
