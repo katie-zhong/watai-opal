@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const plex = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const plex = localFont({
+  src: [
+    { path: "../../docs/assets/fonts/sans-400.woff2", weight: "400" },
+    { path: "../../docs/assets/fonts/sans-500.woff2", weight: "500" },
+    { path: "../../docs/assets/fonts/sans-600.woff2", weight: "600" },
+    { path: "../../docs/assets/fonts/sans-700.woff2", weight: "700" }
+  ],
   variable: "--font-plex"
 });
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+const plexMono = localFont({
+  src: [
+    { path: "../../docs/assets/fonts/mono-400.woff2", weight: "400" },
+    { path: "../../docs/assets/fonts/mono-500.woff2", weight: "500" },
+    { path: "../../docs/assets/fonts/mono-600.woff2", weight: "600" }
+  ],
   variable: "--font-plex-mono"
 });
 
