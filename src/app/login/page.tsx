@@ -10,14 +10,16 @@ export default function LoginPage() {
           Partnerships, tasks, and the 3-day SLA clock — in one place. Sign in
           with your team Google account.
         </p>
-        <a
-          href="https://katie-zhong.github.io/watai-opal/"
-          className="mt-3 inline-block text-sm font-medium underline underline-offset-4"
-        >
-          Enter demo mode
-        </a>
         <div className="mt-6">
           <LoginButton />
+        </div>
+        <div className="mt-3 text-center">
+          <a
+            href="https://katie-zhong.github.io/watai-opal/"
+            className="text-sm font-medium underline underline-offset-4"
+          >
+            Enter demo mode
+          </a>
         </div>
       </div>
     </main>
